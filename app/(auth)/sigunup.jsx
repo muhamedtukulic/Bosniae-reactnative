@@ -4,7 +4,8 @@ import React from 'react'
 const SigunUp = () => {
   return (
     <View>
-      <Text>SigunUp</Text>
+      <Text>SigunUp to your page </Text>
+
     </View>
   )
 }

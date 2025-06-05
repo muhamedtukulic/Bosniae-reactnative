@@ -7,6 +7,9 @@ const TabsLayout = () => {
       <Tabs>
         <Tabs.Screen 
           name='home'
+          options={{
+            
+          }}
         
         />
       </Tabs>
