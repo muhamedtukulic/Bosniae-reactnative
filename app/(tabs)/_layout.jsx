@@ -1,21 +1,30 @@
-import { View, Text } from 'react-native'
-import { Tabs , Redirect } from 'expo-router'
- 
+import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+
 const TabsLayout = () => {
   return (
-    <>
-      <Tabs>
-        <Tabs.Screen 
-          name='home'
-          options={{
-            
-          }}
-        
-        />
-      </Tabs>
-    
-    </>
-  )
-}
+    <Tabs
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName = 'home';
 
-export default TabsLayout
+          if (route.name === 'home') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'profile') {
+            iconName = focused ? 'person' : 'person-outline';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'gray',
+      })}
+    >
+      <Tabs.Screen name="home" options={{ title: 'Home' }} />
+      <Tabs.Screen name="profile" options={{ title: 'Profile' }} />
+    </Tabs>
+  );
+};
+
+export default TabsLayout;

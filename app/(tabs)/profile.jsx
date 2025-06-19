@@ -1,14 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
 
-const profile = () => {
+const Profile = () => {
   return (
-    <View>
-      <Text>profile</Text>
+    <View style={styles.container}>
+      <Text>Profile</Text>
     </View>
-  )
-}
+  );
+};
 
-export default profile
+export default Profile;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
