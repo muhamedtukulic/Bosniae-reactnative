@@ -12,7 +12,7 @@ import {
 import { StatusBar } from 'expo-status-bar';
 import CustomButton from '../../components/CustomButton';
 import { Link, useRouter } from 'expo-router';
-import { singIn } from '../../lib/appwrite';
+import { signIn } from '../../lib/appwrite';
 
 export default function SignIn() {
   const router = useRouter();
@@ -32,9 +32,9 @@ export default function SignIn() {
     setIsSubmitting(true);
     try {
       console.log('Signing in with:', form.email);
-      await singIn(form.email, form.password);
+      await signIn(form.email, form.password);
       console.log('Sign-in success, navigating to home...');
-      router.replace('/home'); // Navigate to home screen
+      router.replace('/home'); 
     } catch (error) {
       console.log('Sign-in failed:', error);
       Alert.alert('Error', error.message || 'Failed to sign in');

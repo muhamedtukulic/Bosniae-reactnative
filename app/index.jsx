@@ -26,7 +26,7 @@ export default function App() {
   
       <View style={styles.buttonContainer}>
         <CustomButton
-          title="Get Started"
+          title="Explore.."
           onPress={() => router.push('/signin')}
         />
       </View>

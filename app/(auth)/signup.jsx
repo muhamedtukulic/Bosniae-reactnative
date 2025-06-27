@@ -7,13 +7,16 @@ import {
   ImageBackground,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import CustomButton from '../../components/CustomButton';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import { createUser } from '../../lib/appwrite';
 
 export default function SignUp() {
+  const router = useRouter();
+
   const [form, setForm] = useState({
     username: '',
     email: '',
@@ -23,24 +26,21 @@ export default function SignUp() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const submit = async () => {
-    if(!form.username || !form.email || !form.password){
-      Alert.alert('Error' , 'Please fill in all informations')
+    if (!form.username || !form.email || !form.password) {
+      Alert.alert('Error', 'Please fill in all informations');
+      return; 
     }
     setIsSubmitting(true);
     try {
-      const result = await createUser(form.email, form.password, form.username)
+      const result = await createUser(form.email, form.password, form.username);
 
-      // set it to global state
-
-      router.replace('/home')
-
+      
+      router.replace('/home');
     } catch (error) {
-      Alert.alert('Error' , error.message)
+      Alert.alert('Error', error.message || 'Something went wrong');
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-
-
   };
 
   return (

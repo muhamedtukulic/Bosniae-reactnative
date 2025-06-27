@@ -21,6 +21,7 @@ const TabsLayout = () => {
         tabBarInactiveTintColor: 'gray',
       })}
     >
+      {/* ONLY define these two tabs */}
       <Tabs.Screen name="home" options={{ title: 'Home' }} />
       <Tabs.Screen name="profile" options={{ title: 'Profile' }} />
     </Tabs>
